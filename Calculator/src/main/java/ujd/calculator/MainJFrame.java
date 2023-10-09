@@ -51,6 +51,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jScreen.setText("0");
         jScreen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jScreenActionPerformed(evt);
@@ -309,20 +310,28 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void jButtonCountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCountActionPerformed
         num2 = Double.parseDouble(jScreen.getText());
-        
         if ("+".equals(op)){
             result = num1 + num2;
+            jScreen.setText(String.valueOf(result));
         }
         else if ("-".equals(op)){
             result = num1 - num2;
+            jScreen.setText(String.valueOf(result));
         }
         else if ("*".equals(op)){
             result = num1 * num2;
+            jScreen.setText(String.valueOf(result));
         }
-        else if ("div".equals(op)){
-            result = num1 / num2;
+        else if("div".equals(op )){ // Nie wiem dlaczego warunek nie dziala
+            if (num2 == 0.0){
+                jScreen.setText("Don't divide by zero");
+            }
+            else{
+                result = num1 / num2;
+                jScreen.setText(String.valueOf(result)); //Convert String to Double
+            }
         }
-        jScreen.setText(String.valueOf(result)); //Convert String to Double
+
     }//GEN-LAST:event_jButtonCountActionPerformed
 
     private void jScreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jScreenActionPerformed
