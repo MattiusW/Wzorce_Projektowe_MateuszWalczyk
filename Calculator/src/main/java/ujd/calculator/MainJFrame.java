@@ -10,9 +10,9 @@ package ujd.calculator;
  */
 public class MainJFrame extends javax.swing.JFrame {
     
-    int num1;
-    int num2;
-    int result;
+    double num1;
+    double num2;
+    double result;
     String op;
     
     /**
@@ -296,7 +296,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCActionPerformed
 
     private void jButtonCountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCountActionPerformed
-        num2 = Integer.parseInt(jScreen.getText());
+        num2 = Double.parseDouble(jScreen.getText());
         
         if ("+".equals(op)){
             result = num1 + num2;
@@ -312,13 +312,13 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jScreenActionPerformed
 
     private void jButtonPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlusActionPerformed
-        num1 = Integer.parseInt(jScreen.getText());
+        num1 = Double.parseDouble(jScreen.getText());
         op = "+";
     }//GEN-LAST:event_jButtonPlusActionPerformed
 
     private void jButtonMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMinusActionPerformed
         // TODO add your handling code here:
-        num1 = Integer.parseInt(jScreen.getText());
+        num1 = Double.parseDouble(jScreen.getText());
         op = "-";
     }//GEN-LAST:event_jButtonMinusActionPerformed
 
