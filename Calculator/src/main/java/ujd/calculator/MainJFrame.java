@@ -34,9 +34,9 @@ public class MainJFrame extends javax.swing.JFrame {
         jScreen = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButtonPlus = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
+        jButtonMulty = new javax.swing.JButton();
         jButtonMinus = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
+        jButtonDiv = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -71,6 +71,13 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        jButtonMulty.setText("multy");
+        jButtonMulty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMultyActionPerformed(evt);
+            }
+        });
+
         jButtonMinus.setText("minus");
         jButtonMinus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +85,12 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton16.setText("jButton1");
+        jButtonDiv.setText("div");
+        jButtonDiv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDivActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("2");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -179,7 +191,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                         .addGap(14, 14, 14)
                                         .addComponent(jButtonCount, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jButtonDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +214,7 @@ public class MainJFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(14, 14, 14)
-                                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jButtonMulty, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 18, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -225,13 +237,13 @@ public class MainJFrame extends javax.swing.JFrame {
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonMulty, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonDiv, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton0, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonC, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonCount, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -240,7 +252,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         jScreen.setText("1");
         
@@ -304,11 +316,18 @@ public class MainJFrame extends javax.swing.JFrame {
         else if ("-".equals(op)){
             result = num1 - num2;
         }
-        jScreen.setText("" + result);
+        else if ("*".equals(op)){
+            result = num1 * num2;
+        }
+        else if ("div".equals(op)){
+            result = num1 / num2;
+        }
+        jScreen.setText(String.valueOf(result)); //Convert String to Double
     }//GEN-LAST:event_jButtonCountActionPerformed
 
     private void jScreenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jScreenActionPerformed
-        // TODO add your handling code here:
+        jScreen.setText("0");
+        
     }//GEN-LAST:event_jScreenActionPerformed
 
     private void jButtonPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPlusActionPerformed
@@ -321,6 +340,18 @@ public class MainJFrame extends javax.swing.JFrame {
         num1 = Double.parseDouble(jScreen.getText());
         op = "-";
     }//GEN-LAST:event_jButtonMinusActionPerformed
+
+    private void jButtonMultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMultyActionPerformed
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(jScreen.getText());
+        op = "*";
+    }//GEN-LAST:event_jButtonMultyActionPerformed
+
+    private void jButtonDivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDivActionPerformed
+        // TODO add your handling code here:
+        num1 = Double.parseDouble(jScreen.getText());
+        op = "div";
+    }//GEN-LAST:event_jButtonDivActionPerformed
 
     /**
      * @param args the command line arguments
@@ -360,8 +391,6 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton0;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -372,7 +401,9 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonC;
     private javax.swing.JButton jButtonCount;
+    private javax.swing.JButton jButtonDiv;
     private javax.swing.JButton jButtonMinus;
+    private javax.swing.JButton jButtonMulty;
     private javax.swing.JButton jButtonPlus;
     private javax.swing.JTextField jScreen;
     // End of variables declaration//GEN-END:variables
