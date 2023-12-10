@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.martyna.labirynt;
+package com.mateusz.labirynt;
 import java.awt.Graphics;
 import java.awt.Image;
 
@@ -76,10 +76,19 @@ public class NewJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RunButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RunButtonActionPerformed
-       Wall wall = new Wall(Direction.North);
-       image = drawPanel.getImage();
+     /*  Wall wall = new Wall(Direction.West);
+       wall.setX(50);
+       wall.setY(100);
+        
        wall.draw(image);
-       drawPanel.repaint();
+       */
+     image = drawPanel.getImage();
+        MazeGame mazeGame= new MazeGame();
+        Maze maze = mazeGame.createMaze(150, 100, image);
+        
+       image = maze.drawMaze(image);
+
+        drawPanel.repaint();
        image = drawPanel.getImage();
     }//GEN-LAST:event_RunButtonActionPerformed
 
