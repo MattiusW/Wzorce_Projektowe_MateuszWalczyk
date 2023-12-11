@@ -39,8 +39,8 @@ public class Door extends MapSite{
     public void draw(Image image)
     {
         Graphics g = image.getGraphics();
-        int x = 200;
-        int y = 200;
+        int x = room1.getx();
+        int y = room2.gety();
         g.drawLine(x, y, x + LENGTH/3, y);
         g.drawLine(x + 2 * LENGTH / 3, y, x + LENGTH, y);
     }
