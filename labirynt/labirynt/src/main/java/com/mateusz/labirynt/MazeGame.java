@@ -34,17 +34,26 @@ public class MazeGame {
         Room room7 = new Room(roomNr++, x + MapSite.LENGTH, y + MapSite.LENGTH * 2);
         Room room8 = new Room(roomNr++, x + MapSite.LENGTH * 2, y);
         Room room9 = new Room(roomNr++, x + MapSite.LENGTH * 2, y + MapSite.LENGTH);
+        Door door5 = new Door(room8, room9);
         Room room10 = new Room(roomNr++, x + MapSite.LENGTH * 2, y + MapSite.LENGTH * 2);
+        Door door6 = new Door(room9, room10);
         Room room11 = new Room(roomNr++, x + MapSite.LENGTH * 3, y);
         Room room12 = new Room(roomNr++, x + MapSite.LENGTH * 3, y + MapSite.LENGTH);
         Room room13 = new Room(roomNr++, x + MapSite.LENGTH * 3, y + MapSite.LENGTH * 2);
         Room room14 = new Room(roomNr++, x + MapSite.LENGTH * 4, y);
         Room room15 = new Room(roomNr++, x + MapSite.LENGTH * 4, y + MapSite.LENGTH);
+        Door door7 = new Door(room14, room15);
         Room room16 = new Room(roomNr++, x + MapSite.LENGTH * 4, y + MapSite.LENGTH * 2);
         Room room17 = new Room(roomNr++, x + MapSite.LENGTH * 5, y);
         Room room18 = new Room(roomNr++, x + MapSite.LENGTH * 5, y + MapSite.LENGTH);
+        Door door8 = new Door(room17, room18);
         Room room19 = new Room(roomNr++, x + MapSite.LENGTH * 5, y + MapSite.LENGTH * 2);
+        Door door9 = new Door(room18, room19);
         Room room20 = new Room(roomNr++, x + MapSite.LENGTH * 5, y + MapSite.LENGTH * 3);
+        Door door10 = new Door(room19, room20);
+        Door door11 = new Door(room20, room20);
+        Door door12 = new Door(room15, room16);
+        
       
         //Tworzenie nowych scian w pokojach
         room1.setSide(Direction.North, new Wall(Direction.North));
@@ -84,15 +93,15 @@ public class MazeGame {
         
         room8.setSide(Direction.North, new Wall(Direction.North));
         room8.setSide(Direction.East, door1);
-        room8.setSide(Direction.South, new Wall(Direction.South));
+        room8.setSide(Direction.South, door5);
         room8.setSide(Direction.West, door1);
         
-        room9.setSide(Direction.North, new Wall(Direction.North));
-        room9.setSide(Direction.East, new Wall(Direction.East));
-        room9.setSide(Direction.South, new Wall(Direction.South));
+        room9.setSide(Direction.North, door5);
+        room9.setSide(Direction.East, door1);
+        room9.setSide(Direction.South, door6);
         room9.setSide(Direction.West, new Wall(Direction.West));
         
-        room10.setSide(Direction.North, new Wall(Direction.North));
+        room10.setSide(Direction.North, door6);
         room10.setSide(Direction.East, new Wall(Direction.East));
         room10.setSide(Direction.South, new Wall(Direction.South));
         room10.setSide(Direction.West, new Wall(Direction.West));
@@ -103,9 +112,9 @@ public class MazeGame {
         room11.setSide(Direction.West, door1);
         
         room12.setSide(Direction.North, new Wall(Direction.North));
-        room12.setSide(Direction.East, new Wall(Direction.East));
+        room12.setSide(Direction.East, door1);
         room12.setSide(Direction.South, new Wall(Direction.South));
-        room12.setSide(Direction.West, new Wall(Direction.West));
+        room12.setSide(Direction.West, door1);
         
         room13.setSide(Direction.North, new Wall(Direction.North));
         room13.setSide(Direction.East, new Wall(Direction.East));
@@ -114,37 +123,37 @@ public class MazeGame {
         
         room14.setSide(Direction.North, new Wall(Direction.North));
         room14.setSide(Direction.East, door1);
-        room14.setSide(Direction.South, new Wall(Direction.South));
+        room14.setSide(Direction.South, door7);
         room14.setSide(Direction.West, door1);
         
-        room15.setSide(Direction.North, new Wall(Direction.North));
+        room15.setSide(Direction.North, door7);
         room15.setSide(Direction.East, new Wall(Direction.East));
-        room15.setSide(Direction.South, new Wall(Direction.South));
-        room15.setSide(Direction.West, new Wall(Direction.West));
+        room15.setSide(Direction.South, door12);
+        room15.setSide(Direction.West, door1);
         
-        room16.setSide(Direction.North, new Wall(Direction.North));
+        room16.setSide(Direction.North, door12);
         room16.setSide(Direction.East, new Wall(Direction.East));
         room16.setSide(Direction.South, new Wall(Direction.South));
         room16.setSide(Direction.West, new Wall(Direction.West));
         
         room17.setSide(Direction.North, new Wall(Direction.North));
         room17.setSide(Direction.East, new Wall(Direction.East));
-        room17.setSide(Direction.South, new Wall(Direction.South));
+        room17.setSide(Direction.South, door8);
         room17.setSide(Direction.West, door1);
         
-        room18.setSide(Direction.North, new Wall(Direction.North));
+        room18.setSide(Direction.North, door8);
         room18.setSide(Direction.East, new Wall(Direction.East));
-        room18.setSide(Direction.South, new Wall(Direction.South));
+        room18.setSide(Direction.South, door9);
         room18.setSide(Direction.West, new Wall(Direction.West));
         
-        room19.setSide(Direction.North, new Wall(Direction.North));
+        room19.setSide(Direction.North, door9);
         room19.setSide(Direction.East, new Wall(Direction.East));
-        room19.setSide(Direction.South, new Wall(Direction.South));
+        room19.setSide(Direction.South, door10);
         room19.setSide(Direction.West, new Wall(Direction.West));
         
-        room20.setSide(Direction.North, new Wall(Direction.North));
+        room20.setSide(Direction.North, door10);
         room20.setSide(Direction.East, new Wall(Direction.East));
-        room20.setSide(Direction.South, new Wall(Direction.South));
+        room20.setSide(Direction.South, door11);
         room20.setSide(Direction.West, new Wall(Direction.West));
         
         
