@@ -68,7 +68,7 @@ public class MazeGame {
         room4.setSide(Direction.West, new Wall(Direction.West));
         
         room5.setSide(Direction.North, new Wall(Direction.North));
-        room5.setSide(Direction.East, new Wall(Direction.East));
+        room5.setSide(Direction.East, door1);
         room5.setSide(Direction.South, new Wall(Direction.South));
         room5.setSide(Direction.West, door4);
         
@@ -83,9 +83,9 @@ public class MazeGame {
         room7.setSide(Direction.West, new Wall(Direction.West));
         
         room8.setSide(Direction.North, new Wall(Direction.North));
-        room8.setSide(Direction.East, new Wall(Direction.East));
+        room8.setSide(Direction.East, door1);
         room8.setSide(Direction.South, new Wall(Direction.South));
-        room8.setSide(Direction.West, new Wall(Direction.West));
+        room8.setSide(Direction.West, door1);
         
         room9.setSide(Direction.North, new Wall(Direction.North));
         room9.setSide(Direction.East, new Wall(Direction.East));
@@ -98,9 +98,9 @@ public class MazeGame {
         room10.setSide(Direction.West, new Wall(Direction.West));
         
         room11.setSide(Direction.North, new Wall(Direction.North));
-        room11.setSide(Direction.East, new Wall(Direction.East));
+        room11.setSide(Direction.East, door1);
         room11.setSide(Direction.South, new Wall(Direction.South));
-        room11.setSide(Direction.West, new Wall(Direction.West));
+        room11.setSide(Direction.West, door1);
         
         room12.setSide(Direction.North, new Wall(Direction.North));
         room12.setSide(Direction.East, new Wall(Direction.East));
@@ -113,9 +113,9 @@ public class MazeGame {
         room13.setSide(Direction.West, new Wall(Direction.West));
         
         room14.setSide(Direction.North, new Wall(Direction.North));
-        room14.setSide(Direction.East, new Wall(Direction.East));
+        room14.setSide(Direction.East, door1);
         room14.setSide(Direction.South, new Wall(Direction.South));
-        room14.setSide(Direction.West, new Wall(Direction.West));
+        room14.setSide(Direction.West, door1);
         
         room15.setSide(Direction.North, new Wall(Direction.North));
         room15.setSide(Direction.East, new Wall(Direction.East));
@@ -130,7 +130,7 @@ public class MazeGame {
         room17.setSide(Direction.North, new Wall(Direction.North));
         room17.setSide(Direction.East, new Wall(Direction.East));
         room17.setSide(Direction.South, new Wall(Direction.South));
-        room17.setSide(Direction.West, new Wall(Direction.West));
+        room17.setSide(Direction.West, door1);
         
         room18.setSide(Direction.North, new Wall(Direction.North));
         room18.setSide(Direction.East, new Wall(Direction.East));
