@@ -11,12 +11,38 @@ import java.awt.Image;
  * @author student
  */
 public class MazeGame {
-    
+
     private Maze maze;
     private int x, y;
-    
-    public Maze createMaze(int x, int y, Image image)
-    {   
+
+    /**
+     * Tworzenie labiryntu przy pomocy wzorca budowniczy
+     * @param x
+     * @param y
+     * @param builder
+     * @return 
+     */
+    public Maze createMaze(int x, int y, MazeBuilder builder) {
+        builder.buildMaze();
+        builder.buildRoom(1, x, y);
+        builder.buildRoom(2, x, y + MapSite.LENGTH);
+        builder.buildDoor(1, 2);
+        builder.buildRoom(3, x + MapSite.LENGTH, y);
+        builder.buildRoom(4, x + MapSite.LENGTH, y + MapSite.LENGTH);
+        builder.buildDoor(2, 4);
+        
+        return builder.getMaze();
+        
+    }
+
+    /**
+     * Pierwszy sposob budowy labiryntu
+     *
+     * @param x
+     * @param y
+     * @return
+     */
+    public Maze createMaze(int x, int y){//, Image image) {
         //licznik pokoi
         int roomNr = 1;
         maze = new Maze();
@@ -24,13 +50,13 @@ public class MazeGame {
         Room room1 = new Room(roomNr++, x, y);
         Room room2 = new Room(roomNr++, x, y + MapSite.LENGTH);
         Door door1 = new Door(room1, room2);
-        Room room3 = new Room(roomNr++, x , y + MapSite.LENGTH * 2);
+        Room room3 = new Room(roomNr++, x, y + MapSite.LENGTH * 2);
         Door door2 = new Door(room2, room3);
-        Room room4 = new Room(roomNr++, x , y + MapSite.LENGTH * 3);
+        Room room4 = new Room(roomNr++, x, y + MapSite.LENGTH * 3);
         Door door3 = new Door(room3, room4);
-        Room room5 = new Room(roomNr++, x + MapSite.LENGTH , y);
+        Room room5 = new Room(roomNr++, x + MapSite.LENGTH, y);
         Door door4 = new Door(room1, room5);
-        Room room6 = new Room(roomNr++, x + MapSite.LENGTH , y + MapSite.LENGTH);
+        Room room6 = new Room(roomNr++, x + MapSite.LENGTH, y + MapSite.LENGTH);
         Room room7 = new Room(roomNr++, x + MapSite.LENGTH, y + MapSite.LENGTH * 2);
         Room room8 = new Room(roomNr++, x + MapSite.LENGTH * 2, y);
         Room room9 = new Room(roomNr++, x + MapSite.LENGTH * 2, y + MapSite.LENGTH);
@@ -53,34 +79,38 @@ public class MazeGame {
         Door door10 = new Door(room19, room20);
         Door door11 = new Door(room20, room20);
         Door door12 = new Door(room15, room16);
-        
-      
+        Door door13 = new Door(room5, room8);
+        Door door14 = new Door(room8, room11);
+        Door door15 = new Door(room11, room14);
+        Door door16 = new Door(room14, room17);
+        Door door17 = new Door(room10, room13);
+
         //Tworzenie nowych scian w pokojach
         room1.setSide(Direction.North, new Wall(Direction.North));
         room1.setSide(Direction.East, door4);
         room1.setSide(Direction.South, door1);
         room1.setSide(Direction.West, new Wall(Direction.West));
-        
+
         room2.setSide(Direction.North, door1);
         room2.setSide(Direction.East, new Wall(Direction.East));
         room2.setSide(Direction.South, door2);
         room2.setSide(Direction.West, new Wall(Direction.West));
-        
+
         room3.setSide(Direction.North, door2);
         room3.setSide(Direction.East, new Wall(Direction.East));
         room3.setSide(Direction.South, door3);
         room3.setSide(Direction.West, new Wall(Direction.West));
-        
+
         room4.setSide(Direction.North, door3);
         room4.setSide(Direction.East, new Wall(Direction.East));
         room4.setSide(Direction.South, door3);
         room4.setSide(Direction.West, new Wall(Direction.West));
-        
+
         room5.setSide(Direction.North, new Wall(Direction.North));
         room5.setSide(Direction.East, door1);
         room5.setSide(Direction.South, new Wall(Direction.South));
         room5.setSide(Direction.West, door4);
-        
+
         room6.setSide(Direction.North, new Wall(Direction.North));
         room6.setSide(Direction.East, new Wall(Direction.East));
         room6.setSide(Direction.South, new Wall(Direction.South));
@@ -90,74 +120,72 @@ public class MazeGame {
         room7.setSide(Direction.East, new Wall(Direction.East));
         room7.setSide(Direction.South, new Wall(Direction.South));
         room7.setSide(Direction.West, new Wall(Direction.West));
-        
+
         room8.setSide(Direction.North, new Wall(Direction.North));
         room8.setSide(Direction.East, door1);
         room8.setSide(Direction.South, door5);
-        room8.setSide(Direction.West, door1);
-        
+        room8.setSide(Direction.West, door13);
+
         room9.setSide(Direction.North, door5);
         room9.setSide(Direction.East, door1);
         room9.setSide(Direction.South, door6);
         room9.setSide(Direction.West, new Wall(Direction.West));
-        
+
         room10.setSide(Direction.North, door6);
         room10.setSide(Direction.East, new Wall(Direction.East));
         room10.setSide(Direction.South, new Wall(Direction.South));
         room10.setSide(Direction.West, new Wall(Direction.West));
-        
+
         room11.setSide(Direction.North, new Wall(Direction.North));
         room11.setSide(Direction.East, door1);
         room11.setSide(Direction.South, new Wall(Direction.South));
-        room11.setSide(Direction.West, door1);
-        
+        room11.setSide(Direction.West, door14);
+
         room12.setSide(Direction.North, new Wall(Direction.North));
         room12.setSide(Direction.East, door1);
         room12.setSide(Direction.South, new Wall(Direction.South));
-        room12.setSide(Direction.West, door1);
-        
+        room12.setSide(Direction.West, new Wall(Direction.West));
+
         room13.setSide(Direction.North, new Wall(Direction.North));
         room13.setSide(Direction.East, new Wall(Direction.East));
         room13.setSide(Direction.South, new Wall(Direction.South));
         room13.setSide(Direction.West, new Wall(Direction.West));
-        
+
         room14.setSide(Direction.North, new Wall(Direction.North));
         room14.setSide(Direction.East, door1);
         room14.setSide(Direction.South, door7);
-        room14.setSide(Direction.West, door1);
-        
+        room14.setSide(Direction.West, door15);
+
         room15.setSide(Direction.North, door7);
         room15.setSide(Direction.East, new Wall(Direction.East));
         room15.setSide(Direction.South, door12);
-        room15.setSide(Direction.West, door1);
-        
+        room15.setSide(Direction.West, new Wall(Direction.West));
+
         room16.setSide(Direction.North, door12);
         room16.setSide(Direction.East, new Wall(Direction.East));
         room16.setSide(Direction.South, new Wall(Direction.South));
         room16.setSide(Direction.West, new Wall(Direction.West));
-        
+
         room17.setSide(Direction.North, new Wall(Direction.North));
         room17.setSide(Direction.East, new Wall(Direction.East));
         room17.setSide(Direction.South, door8);
-        room17.setSide(Direction.West, door1);
-        
+        room17.setSide(Direction.West, door16);
+
         room18.setSide(Direction.North, door8);
         room18.setSide(Direction.East, new Wall(Direction.East));
         room18.setSide(Direction.South, door9);
         room18.setSide(Direction.West, new Wall(Direction.West));
-        
+
         room19.setSide(Direction.North, door9);
         room19.setSide(Direction.East, new Wall(Direction.East));
         room19.setSide(Direction.South, door10);
         room19.setSide(Direction.West, new Wall(Direction.West));
-        
+
         room20.setSide(Direction.North, door10);
         room20.setSide(Direction.East, new Wall(Direction.East));
         room20.setSide(Direction.South, door11);
         room20.setSide(Direction.West, new Wall(Direction.West));
-        
-        
-        
+
         //dodawanie scian do pokoi aby wyswietlic na ekranie
         maze.addRoom(room1);
         maze.addRoom(room2);
@@ -179,9 +207,8 @@ public class MazeGame {
         maze.addRoom(room18);
         maze.addRoom(room19);
         maze.addRoom(room20);
-        
-        
+
         return maze;
-    } 
-    
+    }
+
 }

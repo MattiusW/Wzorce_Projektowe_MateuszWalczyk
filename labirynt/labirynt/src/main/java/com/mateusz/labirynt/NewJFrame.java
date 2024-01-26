@@ -84,12 +84,14 @@ public class NewJFrame extends javax.swing.JFrame {
        */
      image = drawPanel.getImage();
         MazeGame mazeGame= new MazeGame();
-        Maze maze = mazeGame.createMaze(150, 100, image);
-        
+        Maze maze = mazeGame.createMaze(150, 100);
        image = maze.drawMaze(image);
 
+       maze = mazeGame.createMaze(450, 100, new ConcreteBuilder());
+       image = maze.drawMaze(image);
+       
         drawPanel.repaint();
-       image = drawPanel.getImage();
+       //image = drawPanel.getImage();
     }//GEN-LAST:event_RunButtonActionPerformed
 
     /**

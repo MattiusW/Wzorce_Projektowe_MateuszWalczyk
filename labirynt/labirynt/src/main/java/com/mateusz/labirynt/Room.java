@@ -30,6 +30,10 @@ public class Room extends MapSite
         return y;
     }
     
+    public int getNumber(){
+        return this.nr;
+    }
+    
     public void setSide(Direction direction, MapSite mapSite)
     {
         switch (direction)
@@ -73,7 +77,8 @@ public class Room extends MapSite
     {
         Graphics g = image.getGraphics();
         for(MapSite ms:sides)
-            ms.draw(image);
+            if (ms != null)
+                ms.draw(image);
         g.drawString("" + nr, x + 5, y + 12);
     }
 }

@@ -4,44 +4,59 @@
  */
 package com.mateusz.labirynt;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 
-public class Door extends MapSite{
+public class Door extends MapSite {
 
     private Room room1;
     private Room room2;
     private boolean isOpen;
-    
-    public Room otherSideFrom(Room room)
-    {
-        if (room == room1)
+
+    public Room otherSideFrom(Room room) {
+        if (room == room1) {
             return room2;
-        if (room == room2)
+        }
+        if (room == room2) {
             return room1;
+        }
         return null;
     }
-    
-    public Door(Room room1, Room room2)
-    {
+
+    public Door(Room room1, Room room2) {
         this.room1 = room1;
-        this.room2 = room2;        
+        this.room2 = room2;
     }
-    public Room getRoom1()
-    {
+
+    public Room getRoom1() {
         return room1;
     }
-    public Room getRoom2()
-    {
+
+    public Room getRoom2() {
         return room2;
     }
+
     @Override
-    public void draw(Image image)
-    {
+    public void draw(Image image) {
         Graphics g = image.getGraphics();
-        int x = room1.getx();
-        int y = room2.gety();
-        g.drawLine(x, y, x + LENGTH/3, y);
-        g.drawLine(x + 2 * LENGTH / 3, y, x + LENGTH, y);
+        int x1 = room1.getx();
+        int y1 = room1.gety();
+        int x2 = room2.getx();
+        int y2 = room2.gety();
+           g.setColor(Color.red);
+        if (y1 != y2) { //
+            //
+            int maxy = y1 > y2 ? y1 : y2;
+
+            g.drawLine(x1, maxy, x1 + LENGTH / 3, maxy);
+            g.drawLine(x1 + 2 * LENGTH / 3, maxy, x1 + LENGTH, maxy);
+        } else {
+            int maxx = x1 > x2 ? x1 : x2;
+
+            g.drawLine(maxx, y1, maxx , y1+ LENGTH / 3);
+            g.drawLine(maxx , y1 +2 * LENGTH / 3, maxx, y1+ LENGTH );
+        }
+        g.setColor(Color.black);
     }
 }

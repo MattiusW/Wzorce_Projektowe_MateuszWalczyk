@@ -13,18 +13,29 @@ import java.util.Iterator;
  * @author student
  */
 public class Maze {
-    private ArrayList<Room>rooms = new ArrayList<>();
-    
-    public void addRoom(Room room)
-    {
-        rooms.add(room);
-    }
-    public Image drawMaze(Image image)
-    {
+
+    private ArrayList<Room> rooms = new ArrayList<>();
+
+    public Room getRoomByNumber(int nr) {
         Iterator<Room> it = rooms.iterator();
         Room r;
-        while(it.hasNext())
-        {
+        while (it.hasNext()) {
+            r = it.next();
+            if (r.getNumber() == nr) {
+                return r;
+            }
+        }
+        return null;
+    }
+
+    public void addRoom(Room room) {
+        rooms.add(room);
+    }
+
+    public Image drawMaze(Image image) {
+        Iterator<Room> it = rooms.iterator();
+        Room r;
+        while (it.hasNext()) {
             r = it.next();
             r.draw(image);
         }
