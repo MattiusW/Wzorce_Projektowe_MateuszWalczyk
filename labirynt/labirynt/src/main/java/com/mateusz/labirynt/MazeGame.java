@@ -29,7 +29,32 @@ public class MazeGame {
         builder.buildDoor(1, 2);
         builder.buildRoom(3, x + MapSite.LENGTH, y);
         builder.buildRoom(4, x + MapSite.LENGTH, y + MapSite.LENGTH);
+        builder.buildDoor(1, 3);
         builder.buildDoor(2, 4);
+        
+           
+        int nr = 5;
+        for (int i = 2; i < 6; i++) {
+            builder.buildRoom(nr, x, y + MapSite.LENGTH * i);
+            builder.buildRoom(7 + i, x + MapSite.LENGTH, y + MapSite.LENGTH * i);
+            builder.buildRoom(11 + i, x + MapSite.LENGTH * 2, y + MapSite.LENGTH * i);
+            builder.buildDoor(nr, 7 + i);
+            builder.buildDoor(7 + i, 11 + i);
+            nr++;
+        }
+        
+        builder.buildDoor(2, 5);
+        
+        for (int i = 2; i < 8; i++) {
+            builder.buildDoor(i, i + 1);
+        }
+        
+        for (int i = 2; i < 6; i++) {
+            builder.buildRoom(15 + i, x + MapSite.LENGTH * i, y);
+        }
+        
+        builder.buildDoor(3, 17);
+        builder.buildDoor(17, 18);
         
         return builder.getMaze();
         

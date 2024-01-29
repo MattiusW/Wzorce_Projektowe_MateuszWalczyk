@@ -87,7 +87,7 @@ public class NewJFrame extends javax.swing.JFrame {
         Maze maze = mazeGame.createMaze(150, 100);
        image = maze.drawMaze(image);
 
-       maze = mazeGame.createMaze(450, 100, new ConcreteBuilder());
+       maze = mazeGame.createMaze(350, 100, new ConcreteBuilder());
        image = maze.drawMaze(image);
        
         drawPanel.repaint();
