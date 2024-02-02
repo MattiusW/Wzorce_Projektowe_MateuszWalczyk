@@ -8,7 +8,7 @@ import java.awt.Image;
 
 /**
  *
- * @author student
+ * @author Mateusz Walczyk
  */
 public class MazeGame {
 
