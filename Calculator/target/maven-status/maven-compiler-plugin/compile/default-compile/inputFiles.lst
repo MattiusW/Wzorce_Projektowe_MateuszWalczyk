@@ -1,2 +1,3 @@
-C:\Git\Wzorce_Projektowe_MateuszWalczyk\Calculator\src\main\java\ujd\calculator\Calculator.java
-C:\Git\Wzorce_Projektowe_MateuszWalczyk\Calculator\src\main\java\ujd\calculator\MainJFrame.java
+C:\Git\Wzorce_Projektowe_MateuszWalczyk\Calculator\src\main\java\ujd\calculator\Model\Calculator.java
+C:\Git\Wzorce_Projektowe_MateuszWalczyk\Calculator\src\main\java\ujd\calculator\Controller\CalculatorController.java
+C:\Git\Wzorce_Projektowe_MateuszWalczyk\Calculator\src\main\java\ujd\calculator\View\CalculatorView.java
